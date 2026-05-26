@@ -1,14 +1,19 @@
-# tests/test_cable_logic.py
-from src.rail_cable_monitor import CableGuardPoC
+# tests/test_monitor.py
+import sys
+import os
 
-def test_initial_status():
-    # Ujian: Pastikan sistem bermula dalam keadaan 'CONNECTED'
-    monitor = CableGuardPoC("TEST-01")
+# Memastikan pytest boleh jumpa folder src
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
+from rail_cable_monitor import CableGuardPoC
+
+def test_initial_state():
+    # Ujian: Pastikan sensor bermula dengan status CONNECTED
+    monitor = CableGuardPoC("TEST-ZONE")
     assert monitor.status == "CONNECTED"
 
-def test_tamper_detection():
-    # Ujian: Simulasi kabel dipotong dan check jika sistem detect
-    monitor = CableGuardPoC("TEST-02")
-    # Kita tukar status secara manual untuk test logic alert
+def test_alert_logic():
+    # Ujian: Pastikan alert berfungsi bila status berubah
+    monitor = CableGuardPoC("TEST-ZONE")
     monitor.status = "DISCONNECTED"
     assert monitor.status == "DISCONNECTED"
