@@ -1,0 +1,13 @@
+# test_rail_cable.py
+from rail_cable_monitor import CableGuardPoC # Import class anda
+
+def test_sensor_default_status():
+    # Ujian: Pastikan status awal adalah CONNECTED
+    monitor = CableGuardPoC("TEST-01")
+    assert monitor.status == "CONNECTED"
+
+def test_alert_trigger():
+    # Ujian: Pastikan sensor boleh kesan 'cut' (0)
+    monitor = CableGuardPoC("TEST-02")
+    # Jika anda ada method untuk ubah status, test di sini
+    assert True # Gantikan dengan assertion sebenar anda
