@@ -1,5 +1,5 @@
 # test_rail_cable.py
-from rail_cable_monitor import CableGuardPoC # Import class anda
+from rail_cable_monitor import rail_cable_monitor # Import class anda
 
 def test_sensor_default_status():
     # Ujian: Pastikan status awal adalah CONNECTED
