@@ -1,5 +1,0 @@
-# test_monitor.py
-from rail_cable_monitor import CableGuardPoC
-
-def test_placeholder():
-    assert True
