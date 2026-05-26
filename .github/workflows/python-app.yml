@@ -5,6 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
@@ -17,4 +19,7 @@ jobs:
         pip install pytest
     - name: Test with pytest
       run: |
-        pytest .
+        # Senaraikan fail untuk debug
+        ls -la
+        # Jalankan pytest secara eksplisit pada fail tersebut
+        python -m pytest test_monitor.py -v
